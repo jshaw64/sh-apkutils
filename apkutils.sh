@@ -35,7 +35,7 @@ apkutils_verify_alias()
   $KEYTOOL -list \
     -keystore "${keystore_path}" \
     -storepass "${keystore_password}" \
-    -alias "${keystore_alias}" >& "${OUT_STREAM}"
+    -alias "${keystore_alias}"
 
   return $?
 }
