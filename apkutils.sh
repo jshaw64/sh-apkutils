@@ -68,3 +68,20 @@ apkutils_zipalign_apk()
 
   $zipalign_path -v 4 "${bin_src_path}" "${bin_dst_path}"
 }
+
+apkutils_apksign_apk()
+{
+  local bin_src_path="$1"
+  local keystore_path="$2"
+  local keystore_password="$3"
+  local keystore_alias="$4"
+  local android_sdk_version="$5"
+
+  local apksigner_path="${ANDROID_BUILD_TOOLS_DIR}/${android_sdk_version}/apksigner"
+
+  $apksigner_path sign \
+    --ks "${keystore_path}" \
+    --ks-key-alias "${keystore_alias}" \
+    --ks-pass pass:"${keystore_password}" \
+    "${bin_src_path}"
+}
