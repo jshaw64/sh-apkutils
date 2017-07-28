@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
 
 KEYTOOL=/usr/bin/keytool
+JARSIGNER=/usr/bin/jarsigner
 
 apkutils_generate_alias()
 {
