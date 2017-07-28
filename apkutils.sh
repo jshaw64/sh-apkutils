@@ -26,7 +26,7 @@ apkutils_generate_alias()
     -keysize "${key_keysize}"
 }
 
-verify_alias()
+apkutils_verify_alias()
 {
   local keystore_path="$1"
   local keystore_password="$2"
