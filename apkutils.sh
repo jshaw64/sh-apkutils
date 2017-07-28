@@ -57,3 +57,20 @@ apkutils_jarsign_apk()
     "${bin_path}" \
     "${keystore_alias}"
 }
+
+apkutils_zipalign_apk()
+{
+  local bin_src_path="$1"
+  local bin_dst_path="$2"
+  local android_sdk_version="$3"
+
+  local zipalign_path="${ANDROID_BUILD_TOOLS_DIR}/${android_sdk_version}/zipalign"
+
+  $zipalign_path -v 4 "${bin_src_path}" "${bin_dst_path}" >& "${OUT_STREAM}"
+
+  if [ ! -f "${bin_dst_path}" ]; then
+    return $E_ZIPALIGN
+  fi
+
+  return 0
+}
