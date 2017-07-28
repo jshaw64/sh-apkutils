@@ -40,3 +40,19 @@ apkutils_verify_alias()
 
   return $?
 }
+
+apkutils_jarsign_apk()
+{
+  local bin_path="$1"
+  local keystore_path="$2"
+  local keystore_password="$3"
+  local keystore_sigalg="$4"
+  local keystore_alias="$5"
+
+  $JARSIGNER -verbose \
+    -keystore "${keystore_path}" \
+    -storepass "${keystore_password}" \
+    -sigalg "${keystore_sigalg}" \
+    "${bin_path}" \
+    "${keystore_alias}"
+}
