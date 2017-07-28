@@ -25,3 +25,17 @@ apkutils_generate_alias()
     -keyalg "${key_keyalg}" \
     -keysize "${key_keysize}"
 }
+
+verify_alias()
+{
+  local keystore_path="$1"
+  local keystore_password="$2"
+  local keystore_alias="$3"
+
+  $KEYTOOL -list \
+    -keystore "${keystore_path}" \
+    -storepass "${keystore_password}" \
+    -alias "${keystore_alias}" >& "${OUT_STREAM}"
+
+  return $?
+}
