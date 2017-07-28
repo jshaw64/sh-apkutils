@@ -2,6 +2,7 @@
 
 KEYTOOL=/usr/bin/keytool
 JARSIGNER=/usr/bin/jarsigner
+ANDROID_BUILD_TOOLS_DIR="/Users/${USER}/Library/Android/sdk/build-tools"
 
 apkutils_generate_alias()
 {
