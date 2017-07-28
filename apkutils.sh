@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+KEYTOOL=/usr/bin/keytool
+
 apkutils_generate_alias()
 {
   local keystore_path="$1"
