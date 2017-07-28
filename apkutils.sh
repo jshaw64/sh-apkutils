@@ -66,7 +66,7 @@ apkutils_zipalign_apk()
 
   local zipalign_path="${ANDROID_BUILD_TOOLS_DIR}/${android_sdk_version}/zipalign"
 
-  $zipalign_path -v 4 "${bin_src_path}" "${bin_dst_path}" >& "${OUT_STREAM}"
+  $zipalign_path -v 4 "${bin_src_path}" "${bin_dst_path}"
 
   if [ ! -f "${bin_dst_path}" ]; then
     return $E_ZIPALIGN
