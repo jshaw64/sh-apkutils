@@ -1,8 +1,14 @@
 #! /usr/bin/env bash
 
-KEYTOOL=/usr/bin/keytool
-JARSIGNER=/usr/bin/jarsigner
-ANDROID_BUILD_TOOLS_DIR="/Users/${USER}/Library/Android/sdk/build-tools"
+if [ -z "${KEYTOOL}" ]; then
+  KEYTOOL=/usr/bin/keytool
+fi
+if [ -z "${JARSIGNER}" ]; then
+  JARSIGNER=/usr/bin/jarsigner
+fi
+if [ -z "${ANDROID_BUILD_TOOLS_DIR}" ]; then
+  ANDROID_BUILD_TOOLS_DIR="/Users/${USER}/Library/Android/sdk/build-tools"
+fi
 
 apkutils_generate_alias()
 {
